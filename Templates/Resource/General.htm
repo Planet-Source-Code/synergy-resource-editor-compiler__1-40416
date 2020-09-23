@@ -1,0 +1,295 @@
+<html><head>
+<title>VB Resources Tutorial</title>
+<LINK REL=StyleSheet HREF="Css" TYPE="text/css">
+</head>
+<body topmargin='0' leftmargin='0' marginwidth='0' marginheight='0' vlink=blue>
+<br>
+<a name='Top'></a><center><font face='Times New Roman' id=r size = 6><b>
+General Information
+</b></font></center>
+
+<table cellspacing="10" width="100%">
+<tr><td>
+
+<font size=3>
+<center><b>
+<a href='Bitmap'>Bitmaps</a>&nbsp;&nbsp;
+<a href='Cursor'>Cursors</a>&nbsp;&nbsp;
+<a href='Custom'>Custom</a>&nbsp;&nbsp;
+<a href='Icon'>Icons</a>&nbsp;&nbsp;
+<a href='Strings'>Strings</a>&nbsp;&nbsp;
+</b></center>
+</font>
+
+<hr size=5 id=b width='100%'>
+<br>
+
+<center><font size=3 id=r face='Times New Roman'><b>Five Steps to Using Resource Files</b></font></center>
+
+<b><font size=2><blockquote><dl>
+<dt><a href='#Step1' title="Goto Step One">
+Step One:  </a>
+<dd><i>Getting Started</i><br>
+<dt><a href='#Step2' title="Goto Step Two">
+Step Two:  </a>
+<dd><i>Setting Up the precompile Source File</i><br>
+<dt><a href='#Step3' title="Goto Step Three">
+Step Three:  </a>
+<dd><i>Compile the Resource File</i><br>
+<dt><a href='#Step4' title="Goto Step Four">
+Step Four:  </a>
+<dd><i>Include the Resource File in an Application</i><br>
+<dt><a href='#Step5' title="Goto Step Five">
+Step Five:  </a>
+<dd><i>Using Resources in an Application></i><br>
+</dl></blockquote></font></b><br>
+
+What if you use the same bitmaps and icons in several different forms in an 
+application you're developing.&nbsp;&nbsp;Maybe you want to store your custom-made graphics 
+where users can't get at them?&nbsp;&nbsp;What if you want to distribute your 
+applications in several languages?
+<br><br>
+Then resource files are the way to go.&nbsp;&nbsp;No more than one copy of 
+each graphic or other data resource and a simple method of indexing and 
+calling conditional resources.&nbsp;&nbsp;<i><b>All from within your exe.</b></i>
+<br><br>
+You can include almost anything within a resource file:&nbsp;&nbsp;bitmaps, icons, 
+cursors, animated graphics (avi, gif, mpeg, etc.), sounds (wav, mid, etc), 
+flash, html, cascading style sheets, javascript, vbscript, xml, xsl, text or 
+rtf files, wordprocessor documents, and so on.&nbsp;&nbsp;Any datatype you can <i>use</i> in 
+visual basic can be <i>stored</i> in a resource file.
+<br><br>
+This program will show you the <i>basics</i> of installing and using the most common 
+resource types.
+
+<br><br><font size=2>
+<table align="right"><a href='#Top' title="Goto Top">Top</a></table><br>
+<hr align=center id=b width='100%'>
+<b><a name='Step1'>Step One:&nbsp;&nbsp;Getting Started</a></b>
+<br><br></font>
+
+Visual Basic uses <code><b>RC.exe</b></code> which, in turn, uses 
+<code><b>RCDLL.dll</b></code> (the names might be slightly different for 
+different versions of VB) to compile <i>filename.<b>RC</b></i> files into 
+the <i>filename.<b>RES</b></i> files used by the program to make an 
+application.&nbsp;&nbsp;The <code><b>RC.exe</b></code> must be run from DOS
+by either shelling out to the commandLine, using the Run Dialog, or 
+creating and executing a batch file. So, Step One is to locate these files and put them in a convinent folder.  If using the <b><i>Resource Editor</i></b>, put these two files in the same folder as the <b><i>Resource Editor's</i></b> exe.
+
+<br><br><font size=2>
+<table align="right"><a href='#Top' title="Goto Top">Top</a></table><br><br>
+<hr align=center id=b width='100%'>
+<b><a name='Step2'>Step Two:&nbsp;&nbsp;Setting Up the precompile Source File</a></b>
+<br><br></font>
+
+First, create the precompile, text-based, source file - <i>filename</i>.<b>RC</b>.&nbsp;&nbsp;
+This can be done using any text editor, but the <b><i>Resource Editor</i></b> will 
+do much of the work automatically, saving time and avoiding errors.&nbsp;&nbsp;
+The precompile file is written using the C programming syntax which can 
+mostly be avoided by staying away from C-Type resources  - such as menus, 
+accelerators, messagetables, etc.&nbsp;&nbsp;(Visual Basic includes most of these with it's interface - the menu editor with accelerators, the messagebox function, etc.)&nbsp;&nbsp;
+
+<br><br>
+<font size="4" color="red" face="Courier"><b>Syntax:&nbsp;&nbsp;<i>codeID resType dataFile
+</i></b></font>
+<br><br>
+
+<font size="4" color="green" face="Courier"><b>&nbsp;&nbsp;<i>codeID</i></b></font>
+<br><br>
+&nbsp;&nbsp;This is the name that will be referred to in the application's code.&nbsp;&nbsp;
+If the application is fairly large or complex, then understand that organizing 
+the <i><b>codeID's</b></i> used is the most important part of developing and using the 
+resource file.&nbsp;&nbsp;For instance, suppose you're developing an application that will display menu items or 
+ commandButon bitmaps based on certain criteria - <span style="background-color: #ffff00" title=' If-Then statements, For-Next loops '><u>conditionals</u></span>.&nbsp;&nbsp;Once the criteria 
+ has been determined, the proper resources can then be loaded and displayed.
+ &nbsp;&nbsp;This is particularly critical for multi-Language applications 
+ where <i>StringTables</i> can be used to avoid having to develop separate files/programs for each language.&nbsp;&nbsp;Strings require the <i><b>codeIDs</b></i> be <span style="background-color: #ffff00" title=' The range in a resource file is:  2 to 32767 '><u>integers</u></span>, while
+ other data types can use string or integer <i><b>codeIDs</b></i>.
+ 
+<br><br>
+<font size="4" color="green" face="Courier"><b>&nbsp;&nbsp;<i>resType</i></b></font>
+<br><br>
+&nbsp;&nbsp;
+The <i><b>resType</b></i> defines what type of file will be loaded.&nbsp;&nbsp;
+Visual Basic recognizes these keywords as <i><b>resTypes</b></i>: BITMAP, CURSOR, ICON, 
+SOUND, or VIDEO.&nbsp;&nbsp;SOUND refers to a WAV file and VIDEO refers to an 
+AVI file.&nbsp;&nbsp;And there are user-defined or custom <i><b>resTypes</b></i>.&nbsp;&nbsp;This technique will become clear when compared to others and how they are loaded by the application in <a href='#Step5' title="Goto Step Five">
+Step Five</a>.&nbsp;&nbsp;Briefly, they are: <code>LoadResPicture(<font color="red"><b><i>codeID, resType</i></b></font>)</code>, <code>LoadResData(<font color="red"><b><i>codeID, resType</i></b></font>)</code>, and <code>LoadResString(<font color="red"><b><i>codeID</i></b></font>)</code> which, as you can see, only uses the <i><b>codeID</b></i>.&nbsp;&nbsp; Therefore, strings use a different syntax:
+<br><br>
+
+<blockquote><code><b><font id=b>
+STRINGTABLE<br>
+BEGIN<br><br>
+<i>&nbsp;&nbsp;<font id=r>codeID string</font></i><br><br>
+END
+</font></b></code></blockquote>
+<br><br>
+
+<font size="4" color="green" face="Courier"><b>&nbsp;&nbsp;<i>dataFile</i></b></font>
+<br><br>
+&nbsp;&nbsp;Every resource except a string must have a corresponding <i><b>dataFile</b></i>. The <i><b>dataFile's</b></i> name and, if not in the same folder as the compiler (RC.EXE), it's path in double-quotation marks given in the precompile code so the compiler can load it.&nbsp;&nbsp;If the path is given, two slashes &quot;\\&quot; must follow the drive letter:  &quot;c:\\vb\icons\folder.ico&quot;.&nbsp;&nbsp;The text of a <i><b>string</b></i>, however, is included in the precompile code and restricted to one line, in double-quotation marks, at 255 characters maximum.&nbsp;&nbsp;Longer strings must be saved in a file and the file treated as any other <i><b>dataFile</b></i>.&nbsp;&nbsp;Use two backSlashes for comments.&nbsp;&nbsp;A typical precompile resource file might look like this: 
+<br><br>
+
+<a name='Example'></a>
+<code><small>//////////////////////////////////////////////////<br>
+//  ICONS<br>
+  &nbsp;&nbsp;Program	ICON	"program.ico"<br>
+  &nbsp;&nbsp;Resource	ICON	"resource.ico"<br>
+  &nbsp;&nbsp;Section	ICON	"section.ico"<br>
+  &nbsp;&nbsp;Item	ICON	"item.ico"<br>
+  &nbsp;&nbsp;Drag	ICON	"drag.ico"<br><br>
+
+//////////////////////////////////////////////////<br>
+//  CURSORS<br>
+  &nbsp;&nbsp;Horisize	CURSOR	"horisize.cur"<br>
+  &nbsp;&nbsp;Vertsize	CURSOR	"vertsize.cur"<br><br>
+
+//////////////////////////////////////////////////<br>
+//  CUSTOM<br>
+  &nbsp;&nbsp;General	2110	"general.htm"<br>
+  &nbsp;&nbsp;Bitmap	2110	"bitmap.htm"<br>
+  &nbsp;&nbsp;Cursor	2110	"cursor.htm"<br>
+  &nbsp;&nbsp;Custom	2110	"Custom.htm"<br>
+  &nbsp;&nbsp;Html	2110	"html.htm"<br>
+  &nbsp;&nbsp;Icon	2110	"icon.htm"<br>
+  &nbsp;&nbsp;Strings	2110	"strings.htm"<br><br>
+
+//////////////////////////////////////////////////<br>
+//  STRINGS (ENGLISH)<br>
+STRINGTABLE<br>
+BEGIN<br>
+ &nbsp;&nbsp;1001,	"English"<br>
+ &nbsp;&nbsp;1002,	"Spanish"<br>
+ &nbsp;&nbsp;1003,	"German"<br>
+ &nbsp;&nbsp;1004,	"French"<br>
+END<br><br>
+
+//////////////////////////////////////////////////<br>
+//  STRINGS (SPANISH)<br>
+STRINGTABLE<br>
+BEGIN<br>
+ &nbsp;&nbsp;2001,	"Inglés"<br>
+ &nbsp;&nbsp;2002,	"Español"<br>
+ &nbsp;&nbsp;2003,	"Alemán"<br>
+ &nbsp;&nbsp;2004,	"Francés"<br>
+END<br><br>
+
+//////////////////////////////////////////////////<br>
+//  STRINGS (GERMAN)<br>
+STRINGTABLE<br>
+BEGIN<br>
+ &nbsp;&nbsp;3001,	"Englisch"<br>
+ &nbsp;&nbsp;3002,	"Spanisch"<br>
+ &nbsp;&nbsp;3003,	"Deutsch"<br>
+ &nbsp;&nbsp;3004,	"Französisch"<br>
+END<br><br>
+
+//////////////////////////////////////////////////<br>
+//  STRINGS (FRENCH)<br>
+STRINGTABLE<br>
+BEGIN<br>
+ &nbsp;&nbsp;4001,	"Anglais"<br>
+ &nbsp;&nbsp;4002,	"Espagnol"<br>
+ &nbsp;&nbsp;4003,	"Allemand"<br>
+ &nbsp;&nbsp;4004,	"Français"<br>
+END<br><br>
+
+//////////////////////////////////////////////////<br>
+//  SOUNDS<br>
+  &nbsp;&nbsp;Chimes	SOUND	"chimes.wav"<br><br>
+
+//////////////////////////////////////////////////<br>
+//  VIDEOS<br>
+  &nbsp;&nbsp;Search	VIDEO	"#152.avi"</small></code>
+
+<br><br><font size=2>
+<table align="right"><a href='#Top' title="Goto Top">Top</a></table><br><br>
+<hr align=center id=b width='100%'>
+<b><a name='Step3'>Step Three:&nbsp;&nbsp;Compile the Resource File</i>
+</a></b>
+<br><br></font>
+
+After creating the precompile code as a <i>filename.<font color="red">RC</font></i> file, it must be compiled into a <i>filename.<font color="red">RES</font></i> file from the <b>DOS commandline</b> environment.&nbsp;&nbsp;Typically, the "/r" switch is all that is used:<br><br>
+ 
+<blockquote><code><font id=g>rc /r {path}filename.rc</font></code></blockquote>
+
+<br>
+When using a <span style="background-color: #ffff00" title=' A DOS environment program. '><u>batch file</u></span> from VB, remember to have everything accessible. That is: <font color="red"><b>make sure the batch file can find the resource compiler (rc.exe), the resource compiler can find it's library (rcdll.dll) <i>and</i> the precompile code file, and the precompile code file can find all the resources enumerated within it.</b></font>
+
+<br><br><font size=2>
+<table align="right"><a href='#Top' title="Goto Top">Top</a></table><br><br>
+<hr align=center id=b width='100%'>
+<b><a name='Step4'>Step Four:&nbsp;&nbsp;Include the Resource File in an Application</a></b>
+<br><br></font>
+
+<br>The new resource file (filename.res) will be created.&nbsp;&nbsp;Add it to your project (Ctrl-D).&nbsp;&nbsp;All that is left is accessing the resources inside <i>filename.<font color="red">RES</font></i>.
+
+<br><br><font size=2>
+<table align="right"><a href='#Top' title="Goto Top">Top</a></table><br><br>
+<hr align=center id=b width='100%'>
+<b><a name='Step5'>Step Five:&nbsp;&nbsp;Using Resources in an Application</a></b>
+<br><br></font>
+
+There are three intrinsic commands in VB for loading resources: <font color="red"><b>LoadResString</b></font>, <font color="red"><b>LoadResPicture</b></font>, and <font color="red"><b>LoadResData</b></font>.<br><br>
+
+<blockquote><code><font id=b>LoadResString</font>(<font color="red"><b><i>codeID</i></b></font>)</code></blockquote><br>
+
+Loading a string is the simplest - just give the <font color="red"><b><i>codeID</i></b></font>.&nbsp;&nbsp;Remember, the <font color="red"><b><i>codeID</i></b></font> must be an <i>integer</i> in strings.&nbsp;&nbsp;In VB, there is really only one reason for including strings in a resource file - <i>pseudo-<span style="background-color: #ffff00" title=' Settings such as date-currency formats and language based on the &quot;Locale&quot; or &quot;Region&quot; in the world. '><u>localization</u></span></i>, that is, basic VB style multi-language capabilities as shown in the <a href='#Example' title="Goto precompile Example">precompile example above</a>.&nbsp;&nbsp;Actual localization takes advanced programming skills.<br><br>
+
+[See: <a href='Strings'>Strings</a> example.]<br><br>
+
+<big>Basic Graphics:</big><br><br>
+
+<blockquote><code><font id=b>LoadResPicture</font>(<font id=r><b><i>codeID, resType</i></b></font>)</code></blockquote><br>
+
+The <font color="red"><b><i>codeID</i></b></font> for all other resources can be either <i>string</i> or <i>integer</i>, whichever is used in the resource file.&nbsp;&nbsp;
+
+<blockquote>To avoid confusion and errors, I use the following methodologies:&nbsp;&nbsp;If the resource is <i><b>not</b></i> going to be used in a conditional statement (If-Then, Select Case) or loop (Do-Loop, For Next), then I give the resource a descriptive name ("drag.ico"), otherwise - systematic numbers like the <a href='#Example' title="Goto precompile Example">StringTables shown in the rc file example above</a>).&nbsp;&nbsp;When numbering, lay out the conditions and loops first - then number the resources.</blockquote>
+
+
+The <font id=r><b><i>resType</i></b></font> can use either these keywords or constant values:<br><br>
+
+<blockquote><code>
+&nbsp;&nbsp;<font id=g>vbResBitmap</font>&nbsp;&nbsp;&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;<font id=g>vbResIcon</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+&nbsp;&nbsp;<font id=g>vbResCursor</font>&nbsp;&nbsp;&nbsp;&nbsp;2
+</code></blockquote><br>
+
+[See:&nbsp;&nbsp;<a href='Bitmap'>Bitmap</a>, <a href='Icon'>Icon</a>, and <a href='Cursor'>Cursor</a> examples.]<br><br>
+
+When loading cursors, set the MousePointer property to 99-Custom (PicBox.MousePointer = 99).&nbsp;&nbsp;All other resources must be loaded using:<br><br>
+
+<blockquote><code><font id=b>LoadResData</font>(<font id=r><b>codeID, resType</b></font>)</code></blockquote><br>
+
+The <font id=r><b><i>resType</i></b></font> follows some standards, for instance:&nbsp;&nbsp;<br><br>
+
+<blockquote><code>
+<font id=g>BITMAP</font>&nbsp;&nbsp;&nbsp;&nbsp;Defines a bitmap (.BMP)<br>
+<font id=g>CURSOR</font>&nbsp;&nbsp;&nbsp;&nbsp;Defines a cursor (.CUR)<br>
+<font id=g>ICON</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defines an icon (.ICO)<br>
+<font id=g>SOUND</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defines a wave file (.WAV)<br>
+<font id=g>VIDEO</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defines a video file (.AVI)<br>
+</code></blockquote><br>
+
+
+<font id=r><b><i>resType</i></b></font> can also be any user-defined data format:<br><br>
+
+<blockquote><code><font id=g>MOVIE<br>
+AVI<br>
+2110<br>
+HTML<br>
+CSS<br>
+COMIC<br>
+GIF</font></code></blockquote><br><br>
+
+The hard facts here are that everything loaded using <i><b>LoadResData</b></i> comes in <i>Binary</i> format and requires special handling for certain uses.<br><br>
+
+[See:&nbsp;&nbsp;<a href='Custom'>Custom</a> examples, and the <i><b>Resource Editor's</b></i> source code.]<br><br>
+
+<table align="right"><a href='#Top' title="Goto Top">Top</a></table><br><br>
+
+<table cellpadding="2" bgcolor="red" width="100%"><tr><td align='center' bgcolor="yellow" title=" Email Comments "><a href='mailto:mpr0113@hotmail.com?Subject=Resource Editor'><b><font face='Arial'>Synergy</font></b></a></td></tr></table>
+
+</td></tr></table>
+</body>
+</html>

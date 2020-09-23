@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- ********** RESOURCE Template ********** -->
+<RESOURCE>
+	<resDATA id="ICONS">
+		<resNAME>Resource</resNAME>
+		<resVALUE>resource.ico</resVALUE>
+		<resNAME>Section</resNAME>
+		<resVALUE>section.ico</resVALUE>
+		<resNAME>Item</resNAME>
+		<resVALUE>item.ico</resVALUE>
+		<resNAME>Drag</resNAME>
+		<resVALUE>drag.ico</resVALUE>
+	</resDATA>
+	<resDATA id="CURSORS">
+		<resNAME>Horisize</resNAME>
+		<resVALUE>horisize.cur</resVALUE>
+		<resNAME>Vertsize</resNAME>
+		<resVALUE>vertsize.cur</resVALUE>
+	</resDATA>
+	<resDATA id="String Table - Strings (English)">
+		<resNAME>1001</resNAME>
+		<resVALUE>English</resVALUE>
+		<resNAME>1002</resNAME>
+		<resVALUE>Spanish</resVALUE>
+		<resNAME>1003</resNAME>
+		<resVALUE>German</resVALUE>
+		<resNAME>1004</resNAME>
+		<resVALUE>French</resVALUE>
+	</resDATA>
+	<resDATA id="String Table - Strings (Spanish)">
+		<resNAME>2001</resNAME>
+		<resVALUE>Inglés</resVALUE>
+		<resNAME>2002</resNAME>
+		<resVALUE>Español</resVALUE>
+		<resNAME>2003</resNAME>
+		<resVALUE>Alemán</resVALUE>
+		<resNAME>2004</resNAME>
+		<resVALUE>Francés</resVALUE>
+	</resDATA>
+	<resDATA id="String Table - Strings (German)">
+		<resNAME>3001</resNAME>
+		<resVALUE>Englisch</resVALUE>
+		<resNAME>3002</resNAME>
+		<resVALUE>Spanisch</resVALUE>
+		<resNAME>3003</resNAME>
+		<resVALUE>Deutsch</resVALUE>
+		<resNAME>3004</resNAME>
+		<resVALUE>Französisch</resVALUE>
+	</resDATA>
+	<resDATA id="String Table - Strings (French)">
+		<resNAME>4001</resNAME>
+		<resVALUE>Anglais</resVALUE>
+		<resNAME>4002</resNAME>
+		<resVALUE>Espagnol</resVALUE>
+		<resNAME>4003</resNAME>
+		<resVALUE>Allemand</resVALUE>
+		<resNAME>4004</resNAME>
+		<resVALUE>Français</resVALUE>
+	</resDATA>
+	<resDATA id="SOUNDS">
+		<resNAME>Chimes</resNAME>
+		<resVALUE>chimes.wav</resVALUE>
+	</resDATA>
+	<resDATA id="VIDEOS">
+		<resNAME>Search</resNAME>
+		<resVALUE>#152.avi</resVALUE>
+	</resDATA>
+	<resDATA id="HTML">
+		<resNAME>General</resNAME>
+		<resVALUE>general.htm</resVALUE>
+		<resNAME>Bitmap</resNAME>
+		<resVALUE>bitmap.htm</resVALUE>
+		<resNAME>Cursor</resNAME>
+		<resVALUE>cursor.htm</resVALUE>
+		<resNAME>Custom</resNAME>
+		<resVALUE>custom.htm</resVALUE>
+		<resNAME>Icon</resNAME>
+		<resVALUE>icon.htm</resVALUE>
+		<resNAME>Strings</resNAME>
+		<resVALUE>strings.htm</resVALUE>
+	</resDATA>
+	<resDATA id="STRING TABLE - MENU">
+		<resNAME>101</resNAME>
+		<resVALUE>General</resVALUE>
+		<resNAME>102</resNAME>
+		<resVALUE>Bitmap</resVALUE>
+		<resNAME>103</resNAME>
+		<resVALUE>Cursor</resVALUE>
+		<resNAME>104</resNAME>
+		<resVALUE>Custom</resVALUE>
+		<resNAME>105</resNAME>
+		<resVALUE>Icon</resVALUE>
+		<resNAME>106</resNAME>
+		<resVALUE>Strings</resVALUE>
+	</resDATA>
+</RESOURCE>

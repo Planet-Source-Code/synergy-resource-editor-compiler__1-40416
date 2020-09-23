@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- ********** Strings StringsTemplate ********** -->
+<Strings>
+	<resDATA id="German">
+		<resNAME>000</resNAME>
+		<resVALUE>Englisch</resVALUE>
+		<resNAME>001</resNAME>
+		<resVALUE>Spanisch</resVALUE>
+		<resNAME>002</resNAME>
+		<resVALUE>Deutsch</resVALUE>
+		<resNAME>003</resNAME>
+		<resVALUE>Französisch</resVALUE>
+	</resDATA>
+	<resDATA id="French">
+		<resNAME>000</resNAME>
+		<resVALUE>Anglais</resVALUE>
+		<resNAME>001</resNAME>
+		<resVALUE>Espagnol</resVALUE>
+		<resNAME>002</resNAME>
+		<resVALUE>Allemand</resVALUE>
+		<resNAME>003</resNAME>
+		<resVALUE>Français</resVALUE>
+	</resDATA>
+	<resDATA id="English">
+		<resNAME>000</resNAME>
+		<resVALUE>English</resVALUE>
+		<resNAME>001</resNAME>
+		<resVALUE>Spanish</resVALUE>
+		<resNAME>002</resNAME>
+		<resVALUE>German</resVALUE>
+		<resNAME>003</resNAME>
+		<resVALUE>French</resVALUE>
+	</resDATA>
+	<resDATA id="Spanish">
+		<resNAME>000</resNAME>
+		<resVALUE>Inglés</resVALUE>
+		<resNAME>001</resNAME>
+		<resVALUE>Español</resVALUE>
+		<resNAME>002</resNAME>
+		<resVALUE>Alemán</resVALUE>
+		<resNAME>003</resNAME>
+		<resVALUE>Francés</resVALUE>
+	</resDATA>
+</Strings>

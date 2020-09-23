@@ -1,0 +1,106 @@
+<html><head>
+<title>StringTable Tutorial</title>
+</head>
+<style type="text/css">
+<!--
+	#r { color: red }
+	#g { color: green }
+	#b { color: blue }
+Code { font-size: 16px; font-weight: bold }
+-->
+</style>
+<body topmargin='0' leftmargin='0' marginwidth='0' marginheight='0' vlink=blue>
+<br>
+<center><font face='Times New Roman' id=r size = 6><b>
+StringTable Sample</b>
+</font></center>
+
+
+<font size=3>
+<table cellspacing="10" width="100%">
+<tr>
+   <td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='General'><b>General Information</b></a>
+<hr size=5 id=b width='100%'><br>
+
+<blockquote><code>
+<font id=r><b>Syntax:  <i>dataID,  string</i></b></font>
+</code></blockquote>
+
+Where <i><b>dataID</b></i> must be an integer and the comma (,) is required.
+<br><br>
+
+<hr size=5 id=b width='100%'><br>
+
+The precompile resource file (<i><b>filename.RC</b></i>) must include the text of the string and it must fit on a single line of 255 characters maximum.&nbsp;&nbsp;Therefore, there cannot be any LineFeeds, CarriageReturns or Quotation Marks.&nbsp;&nbsp;Use inserts and replace them.</font>
+<br><br>
+
+Some possible inserts when saving strings:<br>
+
+<blockquote><code><b><font id=g>
+\n <font id=b>= Quote</font><br>
+\c <font id=b>= CarriageReturn</font><br>
+\l <font id=b>= LineFeed</font><br>
+%s <font id=b>= variable string to be replaced at runtime</font><br>
+</font></b></code></blockquote>
+
+
+<hr width='100%'><br>
+Format for the precompile resource file (<i><b>filename.RC</b></i>) entry:
+<br><br>
+
+<blockquote><code><b><font id=g>
+STRINGTABLE<br>
+BEGIN<br>
+&nbsp;&nbsp;<i><font id=k>101</font>,	<font id=b>"Resource Editor"</font></i><br>
+END<br>
+</font></b></code></blockquote>
+
+Then to Call from program...<br>
+
+<blockquote><code><b>
+<font id=g>Me.Caption = </font><font id=b>LoadResString</font>(<i>101</i>)<br></font>
+</b></code></blockquote>
+<br>
+
+<hr width='100%'><br>
+
+As you can see from the above, using strings for resources in vb isn't very practical - except for multi-language support in applications.&nbsp;&nbsp;Take particular notice of the sequential nature of the <i><b>dataID</b></i>.<br>
+
+<blockquote><code><b><font id=g>
+//  ENGLISH<br>
+  STRINGTABLE<br>
+  BEGIN<br>
+ &nbsp;&nbsp;<font id=k>101,</font>&nbsp;&nbsp;<font id=b>"Yes"</font><br>
+ &nbsp;&nbsp;<font id=k>102,</font>&nbsp;&nbsp;<font id=b>"No"</font><br>
+ &nbsp;&nbsp;<font id=k>103,</font>&nbsp;&nbsp;<font id=b>"Cancel"</font><br>
+  END<br><br>
+
+//  SPANISH<br>
+  STRINGTABLE<br>
+  BEGIN<br>
+ &nbsp;&nbsp;<font id=k>201,</font>&nbsp;&nbsp;<font id=b>"Si"</font><br>
+ &nbsp;&nbsp;<font id=k>202,</font>&nbsp;&nbsp;<font id=b>"No"</font><br>
+ &nbsp;&nbsp;<font id=k>203,</font>&nbsp;&nbsp;<font id=b>"Cancele"</font><br>
+  END<br><br>
+</font></b></code></blockquote>
+
+<hr width='100%'><br>
+
+In the program...<br>
+
+<blockquote><code><b><font id=g>
+<font id=b>lngEnglish</font> = 100</font><br>
+<font id=b>lngSpanish</font> = 200</font><br><br>
+
+<font id=b>varLanguage = lngEnglish</font><br><br>
+
+<font id=g>cmdYes.Caption = </font><font id=r>LoadResString</font>(1 + <font id=b>varLanguage</font>)<br>
+<font id=g>cmdNo.Caption = </font><font id=r>LoadResString</font>(2 + <font id=b>varLanguage</font>)<br>
+<font id=g>cmdCancel.Caption = </font><font id=r>LoadResString</font>(3 + <font id=b>varLanguage</font>)<br>
+</font></b></code></blockquote>
+
+<tr><td></table>
+</font>
+</body>
+</html>

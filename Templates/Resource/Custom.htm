@@ -1,0 +1,92 @@
+<html><head>
+<title>Custom Tutorial</title>
+</head>
+<style type="text/css">
+<!--
+	#r { color: red }
+	#g { color: green }
+	#b { color: blue }
+Code { font-size: 16px; font-weight: bold }
+-->
+</style>
+<body topmargin='0' leftmargin='0' marginwidth='0' marginheight='0' vlink=blue>
+<br>
+<center><font face='Times New Roman' id=r size = 6><b>
+Custom Sample
+</font></center>
+
+
+<font size=3>
+<table cellspacing="10" width="100%">
+<tr>
+   <td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='General'><b>General Information</b></a>
+<hr size=5 id=b width='100%'><br>
+
+<blockquote><code>
+<font id=r><b>Syntax:  <i>codeID  resType  dataFile</i></b></font>
+</code></blockquote>
+
+Where <i><b>codeID</b></i> is an integer or string.<br><br>
+
+The <i><b>LoadResData</b></i> function uses <b>all</b> <i>user-defined <b>resTypes</b></i>
+<br><br>
+
+<hr size=5 id=b width='100%'><br>
+
+The Resource Compiler (rc.exe) must have direct access to the 
+ <i>dataFile</i> either by having the complete path, or having 
+ the resource in the same folder.  <font id=r>When using the complete 
+ path, there must be two slashes &quot;<b>\\</b>&quot; used after the 
+ drive letter:  &quot;c:\\vb\resources.filename.xxx&quot;.</font>
+<br><br>
+
+<hr width='100%'><br>
+Format for the precompile resource file (<i><b>filename.RC</b></i>) entry using a string <b><i>codeID</i></b>:
+<br><br>
+
+<blockquote><code><b>
+<i><font id=r>Drums&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></i> VIDEO &nbsp;"<font id=g>drums.avi</font>"<br>
+<i><font id=r>Logo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></i> 2110 &nbsp;&nbsp;"<font id=g>LOGO.GIF</font>"<br>
+<i><font id=r>DoorOpening&nbsp;&nbsp;&nbsp;&nbsp;</font></i> SOUND &nbsp;"<font id=g>opening.wav</font>"<br>
+<i><font id=r>Drums&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></i> AVI &nbsp;&nbsp;&nbsp;"<font id=g>drums.avi</font>"<br>
+<i><font id=r>Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></i> HTML &nbsp;&nbsp;"<font id=g>home.html</font>"<br>
+<i><font id=r>rtArrow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></i> JPG &nbsp;&nbsp;&nbsp;"<font id=g>rtarrow.jpg</font>"<br>
+</b></code></blockquote>
+Notice that "2110" is not a <i><b>codeID</b></i>, it is a <i><b>resType</b></i> that works
+ very well with a webBrowser control's <i>Navigate Method</i> [See the <i><b>Resource Editor's</b> source code</i>].
+<br><br>
+
+<hr width='100%'><br>
+
+If the <i><b>codeID</b></i> is a <i>string</i>, it must be enclosed in quotation marks, not if an <i>integer</i>.    The Custom resType must be enclosed in quotation marks. A common method for extracting Custom resources is to load them into a byte array, save them to a file, then load the file into the runtime using basic methods.  For example:<br>
+<blockquote><code><b>
+<font id=g>Dim</font> <font id=b>Buffer()</font> <font id=g>As</font> <font id=b>Byte</font><br>
+<font id=g>Dim</font> <font id=b>f</font> <font id=g>As</font> <font id=b>Integer</font><br><br>
+
+'Extract the resource<br>
+<font id=g>Buffer</font> = <font id=r>LoadResData</font>(<font id=b><i>101, "GIF"</i></font>)<br><br>
+
+'Save the byte array into a file<br>
+<font id=b>f</font> = <font id=g>FreeFile</font><br>
+<font id=g>Open</font> <font id=b><i>dataFile</i></font> <font id=g>For Binary Access Write As</font> <font id=b>f</font><br>
+<font id=g>Put</font> <font id=b>f, , Buffer</font><br>
+<font id=g>Close</font> <font id=b>f</font><br><br>
+
+'Use the resource<br>
+<font id=g>Picture1.Picture</font> = 
+<font id=b>LoadPicture</font></i>(<i><font id=r>dataFile</font></i>)<br>
+<font id=g>Kill</font> <i><font id=r>dataFile</font></i><br>
+</b></code></blockquote>
+<br>
+
+For <i>text</i> and <i>rtf</i> strings the <b><i>dataFile</i></b> can be used directly from the resource file, but the data must be converted to unicode to be displayed:<br>
+<blockquote><code><b>
+<font id=g>txtSample.Text = StrConv</font>(<font id=b>LoadResData</font>(<font id=r><i>"codeName", "resType"</i></font>), <font id=b>vbUnicode</font>)
+</b></code></blockquote>
+<br>
+
+<tr><td></table>
+</font>
+</body>
+</html>
